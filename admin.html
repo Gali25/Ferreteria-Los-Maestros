@@ -1,47 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferreteria Los Maestros - Admin</title>
-    <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferretería Los Maestros - Administración</title>
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <header>
-    <h1>Módulo de Administración</h1>
-    <nav>
-      <a href="ferreteria.html">Volver a Sitio Público</a>
-    </nav>
-  </header>
-  <main>
-    <h2>Mantenedor de Productos</h2>
-    <form id="form-producto-admin">
-      <input type="text" id="nombre-prod" placeholder="Nombre Producto" required>
-      <input type="text" id="cat-prod" placeholder="Categoría" required>
-      <input type="number" id="precio-prod" placeholder="Precio CLP" required>
-      <input type="number" id="stock-prod" placeholder="Stock Inicial" required>
-      <input type="url" id="imagen-prod" placeholder="URL de la imagen (https://...)">
-      <button type="submit">Guardar Producto</button>
-    </form>
-    <table>
-      <thead>
-        <tr>
-          <th>Imagen</th>
-          <th>Código</th>
-          <th>Nombre</th>
-          <th>Categoría</th>
-          <th>Precio</th>
-          <th>Stock</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="tbody-productos"></tbody>
-    </table>
-  </main>
-  <footer>
-    <p>&copy; 2026 Ferretería Los Maestros - Administración</p>
-  </footer>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <a href="ferreteria.html" class="admin-brand">
+        <img src="images/logo.svg" alt="Logo Ferretería Los Maestros">
+        <span>Los Maestros<br><small>Panel Admin</small></span>
+      </a>
+      <nav aria-label="Navegación del panel de administración">
+        <a href="admin.html" class="active">📦 Productos</a>
+        <a href="#" class="disabled" title="Próximamente" aria-disabled="true">👤 Usuarios (próximamente)</a>
+      </nav>
+      <div class="volver">
+        <a href="ferreteria.html">&larr; Volver al sitio público</a>
+      </div>
+    </aside>
+
+    <main class="admin-content">
+      <h1 class="page-title">Mantenedor de productos</h1>
+      <p class="page-subtitle">Agrega productos nuevos o elimina los que ya no están disponibles. El código se genera automáticamente.</p>
+
+      <form id="form-producto-admin">
+        <div class="form-field">
+          <label for="nombre-prod">Nombre del producto</label>
+          <input type="text" id="nombre-prod" maxlength="100" required>
+        </div>
+        <div class="form-field">
+          <label for="cat-prod">Categoría</label>
+          <select id="cat-prod" required>
+            <option value="">-- Seleccione --</option>
+            <option value="Mat. Construcción">Mat. Construcción</option>
+            <option value="Herramientas">Herramientas</option>
+            <option value="Pinturas">Pinturas</option>
+            <option value="Ferretería General">Ferretería General</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="precio-prod">Precio (CLP)</label>
+          <input type="number" id="precio-prod" min="0" step="1" required>
+        </div>
+        <div class="form-field">
+          <label for="stock-prod">Stock inicial</label>
+          <input type="number" id="stock-prod" min="0" step="1" required>
+        </div>
+        <div class="form-field">
+          <label for="stock-critico-prod">Stock crítico (opcional)</label>
+          <input type="number" id="stock-critico-prod" min="0" step="1" placeholder="Ej: 10">
+        </div>
+        <div class="form-field">
+          <label for="imagen-prod">URL de la imagen (opcional)</label>
+          <input type="url" id="imagen-prod" placeholder="https://...">
+        </div>
+        <div class="form-field" style="grid-column:1 / -1;">
+          <label for="descripcion-prod">Descripción (opcional)</label>
+          <textarea id="descripcion-prod" maxlength="500" rows="2"></textarea>
+        </div>
+        <button type="submit">Guardar producto</button>
+      </form>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbody-productos"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/productos.js"></script>
   <script src="js/admin.js"></script>
-    
 </body>
 </html>
