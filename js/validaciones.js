@@ -1,7 +1,5 @@
 /* =============================================================
    Validaciones de formularios — Ferretería Los Maestros
-   Incluye validación en tiempo real (input/blur) con mensajes
-   de error y sugerencias dinámicas, según lo pedido en la pauta.
    ============================================================= */
 
 const regionesComunas = {
