@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferreteria Los Maestros - Admin</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+    <h1>Módulo de Administración</h1>
+    <nav>
+      <a href="ferreteria.html">Volver a Sitio Público</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Mantenedor de Productos</h2>
+    <form id="form-producto-admin">
+      <input type="text" id="nombre-prod" placeholder="Nombre Producto" required>
+      <input type="text" id="cat-prod" placeholder="Categoría" required>
+      <input type="number" id="precio-prod" placeholder="Precio CLP" required>
+      <input type="number" id="stock-prod" placeholder="Stock Inicial" required>
+      <input type="url" id="imagen-prod" placeholder="URL de la imagen (https://...)">
+      <button type="submit">Guardar Producto</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tbody-productos"></tbody>
+    </table>
+  </main>
+  <footer>
+    <p>&copy; 2026 Ferretería Los Maestros - Administración</p>
+  </footer>
+  <script src="js/admin.js"></script>
+    
+</body>
+</html>
